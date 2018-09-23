@@ -14,13 +14,13 @@ namespace MonoGame3._6
 
     public void Update(GameTime gameTime)
     {
-      if (Value != TimeSpan.MinValue)
+      if (Value.TotalSeconds > 0)
       {
         Value = Value.Subtract(new TimeSpan(gameTime.ElapsedGameTime.Ticks));
 
         if (Value.TotalSeconds < 0)
         {
-          Value = TimeSpan.MinValue;
+          Value = new TimeSpan();
         }
       }
     }
